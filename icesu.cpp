@@ -1,30 +1,75 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
-int main()
-{
-	/*cout << ceil(56.8)<< endl;
-	char str1[30] = "Hello world";
-	char str2[30] = "Hi world";
-	cout << strchr(str1,'o') << endl;
-	cout << strcmp(str2,str1) << endl;
-	cout << strcpy(str1,str2) << endl;
-	cout << str1 << endl;
-	cout << strlen(str1) << endl;
-	return 0;*/
-	char str[10];
-	cout << "Enter string :";
-	cin >> str;
-	cout << strlen(str) << endl;
-	for (int i=0;i<=strlen(str);i++)
-	{ cout << str[i]<< endl;
-	cout << "*" << endl;
+void DispalyMenu ();
+float Area (const float Radius);
+	float Area (const float Length,const float Widht,const float Hight);
+	int main()
+	{
+	char choice;
+	bool flag = true;
+	do
+	{
+		DispalyMenu();
+		cin >> choice;
+		if (choice == '1'){
+			float Radius;
+			cout << "\nEnter radius : ";
+			cin >>  Radius;
+			cout << "Area of Circle = " << fixed;
+			cout  << setprecision(2) << Area(Radius) << endl;
+		
 	}
-
-
-
-
-
-	return 0;
-
+		else if (choice == '2')
+		{
+			float Length,Widht;
+			cout << "Enter length and width";
+			cin >> Length >> Widht;
+			cout << "Area of Recrangle = " << fixed;
+			cout << setprecision(2) << Area(Length,Widht);
+			cout << endl;
+		}
+		else if (choice == '3')
+		{
+			float Length,Widht,Hight;
+			cout << "Enter width and hight =";
+			cin >> Widht,Hight;
+			cout << "Area of Triangle = " << fixed;
+			cout << setprecision(2) << Area(Length,Widht);
+		}
+		else if (choice == '4')
+		{
+		flag  = false;
+		}
+		else 
+		{
+			cout << "\nYou choose out of range is";
+			cout << "not process.\n";
+		}
+		} while (flag);
+			cout << "\n . . .Exit program . . . \n";
+		return (0);
 }
+	float Area (const float Radius)
+	{
+		return (3.14159F*Radius*Radius);
+	}
+	float  Area(const float Length,const float Widht)
+	{
+	return (Length*Widht);
+	}
+	float  Area(const float Hight,const float Widht)
+	{
+	return (0.5*Widht*Hight);
+	}
+	void DisplayMenu(){
+		cout << endl;
+		cout << "Program Calculate Area" << endl;
+		cout << "1. Clrcle" << endl;
+		cout << "2. Rectangle" << endl;
+		cout << "3. Triangle" << endl;
+		cout << "4. Exit" << endl;
+		cout << "Enter your choice number:";
+	}
+	
